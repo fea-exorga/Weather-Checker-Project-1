@@ -3,7 +3,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  base:'/Weather-Checker-Project-1/',
   plugins: [react()],
   server: {
     proxy: {
