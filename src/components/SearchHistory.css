@@ -1,0 +1,135 @@
+.history-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-auto-rows: 260px;
+    gap: 16px;
+  }
+  
+  .history-card {
+    position: relative;
+    height: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .history-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.65);
+  }
+  
+  .history-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0,0,0,0.55) 0%,
+      transparent 55%,
+      rgba(0,0,0,0.75) 100%
+    );
+    z-index: 0;
+  }
+  
+  .history-content {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .history-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .history-time-block {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .h-time {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: var(--white);
+    line-height: 1;
+  }
+  
+  .h-city-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+  }
+  
+  .history-icon {
+    font-size: 26px;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+  }
+  
+  .history-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+  .h-country {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 3px;
+  }
+  
+  .h-city {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    letter-spacing: 2px;
+    line-height: 0.95;
+    color: var(--white);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  }
+  
+  .h-right { text-align: right; }
+  
+  .h-temp {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: 1px;
+    color: var(--white);
+  }
+  
+  .h-condition {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  @media (max-width: 480px) {
+    .history-grid { grid-template-columns: 1fr; }
+    .history-card { height: 180px; }
+  }
